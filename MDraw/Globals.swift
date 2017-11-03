@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Globals
 //  MDraw
 //
 //  Created by zer0ne on 9/13/17.
@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import UIKit
+
+struct Globals {
+    let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
+    let SCREEN_WIDTH = UIScreen.main.bounds.size.width
+    var BRUSH_SIZE:CGFloat = 3
+    var BRUSH_COLOR:CGColor = UIColor.green.cgColor
+    var BRUSH_OPACITY:CGFloat = 1.0
+}

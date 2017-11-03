@@ -9,11 +9,22 @@
 import Foundation
 import UIKit
 
-class brushModal: UIViewController {
+
+class brushModalController: UIViewController {
+    
+    var bModal : brushModal?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
+    }
+    
+    func updateModLabel(color : UIColor){
+        if let _ = bModal {
+            bModal?.colorLabel?.backgroundColor = color
+            print("updateModLabel gets called")
+        }
+        print("here")
     }
     
     required init?(coder aDecoder: NSCoder) {

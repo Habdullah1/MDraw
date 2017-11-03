@@ -9,58 +9,74 @@
 import Foundation
 import UIKit
 
-let globals = Globals.init()
+var globals = Globals.init()
 
 class LandingScreen: UIViewController {
     var brushButton : UIButton?
     var clearButton : UIButton?
     var saveButton : UIButton?
     var ads_view : UIView?
-    var drawView : UIImageView?
-    var brushModal : UIView?
+    var drawingView : drawView?
+    var brushMod : brushModal?
     var isBrushPressed = false
+    var bmc : brushModalController?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
         
+        bmc = brushModalController(nibName: nil, bundle: nil)
+
         //brush section
         brushButton = UIButton(frame: CGRect(x: 0.25 * globals.SCREEN_WIDTH, y: 0.05 * globals.SCREEN_HEIGHT, width: 0.05 * globals.SCREEN_WIDTH, height: 0.05 * globals.SCREEN_WIDTH))
-        brushButton?.backgroundColor = UIColor.red
+        brushButton?.setBackgroundImage(UIImage(named:"color_palette"), for: .normal)
         brushButton?.addTarget(self, action: #selector(LandingScreen.brushPressed), for: .touchUpInside)
         super.view.addSubview(brushButton!)
         
         //clear button
         clearButton = UIButton(frame: CGRect(x: 0.5 * globals.SCREEN_WIDTH, y: 0.05 * globals.SCREEN_HEIGHT, width: 0.05 * globals.SCREEN_WIDTH, height: 0.05 * globals.SCREEN_WIDTH))
-        clearButton?.backgroundColor = UIColor.green
+        clearButton?.setBackgroundImage(UIImage(named: "new"), for: .normal)
         clearButton?.addTarget(self, action: #selector(LandingScreen.clearPressed), for: .touchUpInside)
         super.view.addSubview(clearButton!)
         
         //save button
         saveButton = UIButton(frame: CGRect(x: 0.75 * globals.SCREEN_WIDTH, y: 0.05 * globals.SCREEN_HEIGHT, width: 0.05 * globals.SCREEN_WIDTH, height: 0.05 * globals.SCREEN_WIDTH))
-        saveButton?.backgroundColor = UIColor.blue
+        saveButton?.setBackgroundImage(UIImage(named:"saveIcon"), for: .normal)
+        saveButton?.addTarget(self, action: #selector(savePressed), for: .touchUpInside)
         super.view.addSubview(saveButton!)
         
-        drawView = UIImageView(frame: CGRect(x: 0, y: 0, width: globals.SCREEN_WIDTH, height: globals.SCREEN_HEIGHT))
-        super.view.addSubview(drawView!)
+        drawingView = drawView(frame: CGRect(x: 0, y: 0.2 * globals.SCREEN_HEIGHT, width: globals.SCREEN_WIDTH, height: globals.SCREEN_HEIGHT))
+        drawingView?.isUserInteractionEnabled = true
+        super.view.addSubview(drawingView!)
         
         
     }
     
-    func brushPressed() {
+    @objc func brushPressed() {
         if isBrushPressed {
-            brushModal!.removeFromSuperview()
+            brushMod!.removeFromSuperview()
             isBrushPressed = false
         }
         else {
-            brushModal = UIView(frame: CGRect(x: 0.25 * globals.SCREEN_WIDTH, y: 0.15 * globals.SCREEN_HEIGHT, width: 0.5 * globals.SCREEN_WIDTH, height: 0.5 * globals.SCREEN_HEIGHT))
-            brushModal?.backgroundColor = UIColor.white
-            super.view.addSubview(brushModal!)
+            brushMod = brushModal(frame: CGRect(x: 0.25 * globals.SCREEN_WIDTH, y: 0.15 * globals.SCREEN_HEIGHT, width: 0.5 * globals.SCREEN_WIDTH, height: 0.5 * globals.SCREEN_HEIGHT))
+            brushMod?.backgroundColor = UIColor.black
+            super.view.addSubview(brushMod!)
             isBrushPressed = true
         }
     }
     
-    func clearPressed() {
-        drawView?.image = nil
+    @objc func savePressed() {
+        
+        UIImageWriteToSavedPhotosAlbum((drawingView?.image)!, nil, nil, nil)
+        let alert = UIAlertController(title: "Saved", message: "Your drawing has been saved to camera roll", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title:"OK!", style: .default)
+        alert.addAction(alertAction)
+        present(alert, animated: true) {
+            ()-> Void in
+        }
+    }
+    
+    @objc func clearPressed() {
+        drawingView?.image = nil
     }
     
     required init?(coder aDecoder: NSCoder) {
