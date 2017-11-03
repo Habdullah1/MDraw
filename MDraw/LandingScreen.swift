@@ -58,7 +58,6 @@ class LandingScreen: UIViewController {
         }
         else {
             brushMod = brushModal(frame: CGRect(x: 0.25 * globals.SCREEN_WIDTH, y: 0.15 * globals.SCREEN_HEIGHT, width: 0.5 * globals.SCREEN_WIDTH, height: 0.5 * globals.SCREEN_HEIGHT))
-            brushMod?.backgroundColor = UIColor.black
             super.view.addSubview(brushMod!)
             isBrushPressed = true
         }

@@ -17,7 +17,8 @@ class brushModal: UIView {
     var bmc : brushModalController?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        self.backgroundColor = UIColor.blue.withAlphaComponent(0.35)
+        self.layer.cornerRadius = 0.25 * frame.width
         bmc = brushModalController(nibName: nil, bundle: nil)
         bmc?.bModal = self
         //size slier
@@ -33,7 +34,8 @@ class brushModal: UIView {
         colorLabel?.backgroundColor = UIColor(cgColor: globals.BRUSH_COLOR)
         colorLabel?.textColor = UIColor.white
         
-        wheel = colorWheel(frame: CGRect(x: 0, y: 0, width: 0.65 * frame.width, height: frame.height * 0.55), bmc: self.bmc!)
+        
+        wheel = colorWheel(frame: CGRect(x: 0.1 * frame.width, y: 0.1 * frame.height, width: 0.55 * frame.width, height: frame.height * 0.55), bmc: self.bmc!)
         
         
         //add views to main view

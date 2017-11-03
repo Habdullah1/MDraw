@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08AD11C41FAC517B0092FF1D /* scalableBrush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AD11C31FAC517B0092FF1D /* scalableBrush.swift */; };
 		08C406EC1F69EE84003AFB29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C406EB1F69EE84003AFB29 /* AppDelegate.swift */; };
 		08C406EE1F69EE84003AFB29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C406ED1F69EE84003AFB29 /* ViewController.swift */; };
 		08C406F11F69EE84003AFB29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08C406EF1F69EE84003AFB29 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08AD11C31FAC517B0092FF1D /* scalableBrush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scalableBrush.swift; sourceTree = "<group>"; };
 		08C406E81F69EE84003AFB29 /* MDraw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDraw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08C406EB1F69EE84003AFB29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08C406ED1F69EE84003AFB29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				08C4071D1FAA5E95003AFB29 /* BrushModalController.swift */,
 				08C4071F1FAA6366003AFB29 /* BrushModal.swift */,
 				08C407191F69F36B003AFB29 /* Globals.swift */,
+				08AD11C31FAC517B0092FF1D /* scalableBrush.swift */,
 				08C406EF1F69EE84003AFB29 /* Main.storyboard */,
 				08C406F21F69EE84003AFB29 /* Assets.xcassets */,
 				08C406F41F69EE84003AFB29 /* LaunchScreen.storyboard */,
@@ -286,6 +289,7 @@
 				08C407241FAB942A003AFB29 /* DrawView.swift in Sources */,
 				08C4071A1F69F36B003AFB29 /* Globals.swift in Sources */,
 				08C406EC1F69EE84003AFB29 /* AppDelegate.swift in Sources */,
+				08AD11C41FAC517B0092FF1D /* scalableBrush.swift in Sources */,
 				08C407221FAAD933003AFB29 /* ColorWheel.swift in Sources */,
 				08C407201FAA6366003AFB29 /* BrushModal.swift in Sources */,
 				08C4071C1F69F77F003AFB29 /* LandingScreen.swift in Sources */,
@@ -390,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -441,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
