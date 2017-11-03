@@ -15,6 +15,7 @@ class brushModal: UIView {
     var colorLabel : UILabel?
     var wheel : colorWheel?
     var bmc : brushModalController?
+    var draws : drawView?
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.blue.withAlphaComponent(0.35)
@@ -34,20 +35,25 @@ class brushModal: UIView {
         colorLabel?.backgroundColor = UIColor(cgColor: globals.BRUSH_COLOR)
         colorLabel?.textColor = UIColor.white
         
+        draws = drawView(frame: CGRect(x: 0.70 * frame.width,y: 0.15 * frame.height, width: 0.2 * frame.width, height: 0.3 * frame.height))
+        draws?.isUserInteractionEnabled = false
+        draws?.drawLines(fromPoint: CGPoint(x:(draws?.frame.width)!/2 - 4, y: (draws?.frame.height)!/2 - 4), toPoint: CGPoint(x:(draws?.frame.width)!/2 - 4, y: (draws?.frame.height)!/2 - 4))
         
         wheel = colorWheel(frame: CGRect(x: 0.1 * frame.width, y: 0.1 * frame.height, width: 0.55 * frame.width, height: frame.height * 0.55), bmc: self.bmc!)
         
         
         //add views to main view
         self.addSubview(sizeSlider!)
-        self.addSubview(colorLabel!)
+//        self.addSubview(colorLabel!)
         self.addSubview(wheel!)
-        
+        self.addSubview(draws!)
     }
     @objc func numChanged(sender: UISlider) {
         
         sizeSlider?.setValue(Float(Int((sizeSlider?.value)!)), animated: true)
         updateLabel(num: sizeSlider?.value)
+        draws?.image = nil
+        draws?.drawLines(fromPoint: CGPoint(x:(draws?.frame.width)!/2 - 4, y: (draws?.frame.height)!/2 - 4), toPoint: CGPoint(x:(draws?.frame.width)!/2 - 4, y: (draws?.frame.height)!/2 - 4))
     }
     
     func updateLabel(num : Float?) {

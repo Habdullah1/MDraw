@@ -40,6 +40,9 @@ class colorWheel : UIImageView {
         globals.BRUSH_COLOR = color.cgColor
         if bmc != nil {
             bmc!.updateModLabel(color: color)
+            bmc!.bModal?.draws?.image = nil
+            bmc!.bModal?.draws?.drawLines(fromPoint: CGPoint(x:(bmc!.bModal?.draws?.frame.width)!/2 - 4, y: (bmc!.bModal?.draws?.frame.height)!/2 - 4), toPoint: CGPoint(x:(bmc!.bModal?.draws?.frame.width)!/2 - 4, y: (bmc!.bModal?.draws?.frame.height)!/2 - 4))
+
         }
         print("update color gets called")
     }
